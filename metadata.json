@@ -1,0 +1,21 @@
+{
+    "KPackageStructure": "KWin/Script",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "xinkai.chen@qq.com",
+                "Name": "Xinkai Chen"
+            }
+        ],
+        "Description": "WezTerm Toggle",
+        "Icon": "preferences-system-windows-script-test",
+        "Id": "wezterm-toggle",
+        "License": "GPL",
+        "Name": "WezTermToggler",
+        "Version": "1.0"
+    },
+    "X-KDE-PluginKeyword": "wezterm-toggle",
+    "X-KWin-Border-Activate": "true",
+    "X-Plasma-API": "javascript",
+    "X-Plasma-MainScript": "code/main.js"
+}
