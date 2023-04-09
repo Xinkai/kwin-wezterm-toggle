@@ -1,6 +1,6 @@
 "use strict";
 
-const VER = "0.7";
+const VER = "0.11";
 let wezTermCaught = null;
 let oldActive = null;
 
@@ -55,9 +55,11 @@ function hideWezTerm(wezTerm) {
 
 function initSetup(wezTerm) {
     log("Initial setup");
+    // wezTerm.minimized = true;
+   //  wezTerm.fullScreen = true;
     wezTerm.skipTaskbar = true;
     wezTerm.skipPager = true;
-    wezTerm.setMaximize(true, true);
+    wezTerm.skipSwitcher = true;
 }
 
 function toggle(_qAction) {
