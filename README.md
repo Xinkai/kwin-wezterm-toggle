@@ -12,6 +12,7 @@ kpackagetool5 --type=KWin/Script -r wezterm-toggle # Needs logout, because KWin 
 
 # Debug
 plasma-interactiveconsole --kwin
+qdbus org.kde.KWin /KWin showDebugConsole
 journalctl --user --boot 0 --follow --identifier kwin_wayland
 
 # List
