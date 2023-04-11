@@ -1,6 +1,6 @@
 "use strict";
 
-const VER = "0.11";
+const VER = "0.12";
 let wezTermCaught = null;
 let oldActive = null;
 
@@ -60,6 +60,7 @@ function initSetup(wezTerm) {
     wezTerm.skipTaskbar = true;
     wezTerm.skipPager = true;
     wezTerm.skipSwitcher = true;
+    wezTermCaught = wezTerm;
 }
 
 function toggle(_qAction) {
@@ -90,8 +91,7 @@ function main() {
     try {
         workspace.clientAdded.connect((client) => {
             if (isWezTerm(client)) {
-                wezTermCaught = client;
-                initSetup(wezTermCaught);
+                initSetup(client);
                 log("Caught!", wezTermCaught);
             }
         });
