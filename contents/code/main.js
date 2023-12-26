@@ -1,6 +1,10 @@
 "use strict";
 
-const VER = "0.13";
+// Configuration Starts
+const KEY_SEQUENCE = "Meta+Alt+`";
+// Configuration Ends
+
+const VER = "0.14";
 let wezTermCaught = null;
 let oldActive = null;
 
@@ -103,7 +107,7 @@ function main() {
             }
         });
 
-        const registered = registerShortcut("WezTermToggle", "WezTermToggle", "Meta+Alt+`", toggle);
+        const registered = registerShortcut("WezTermToggle", "WezTermToggle", KEY_SEQUENCE, toggle);
         if (registered) {
             log("Registered");
         } else {

@@ -10,9 +10,9 @@
         "Description": "WezTerm Toggle",
         "Icon": "preferences-system-windows-script-test",
         "Id": "wezterm-toggle",
-        "License": "GPL",
+        "License": "MIT",
         "Name": "WezTermToggler",
-        "Version": "1.0"
+        "Version": "0.14"
     },
     "X-KDE-PluginKeyword": "wezterm-toggle",
     "X-KWin-Border-Activate": "true",
