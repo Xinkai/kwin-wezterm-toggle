@@ -1,6 +1,6 @@
 "use strict";
 
-const VER = "0.12";
+const VER = "0.13";
 let wezTermCaught = null;
 let oldActive = null;
 
@@ -77,12 +77,12 @@ function toggle(_qAction) {
         return;
     }
 
-    if (wezTerm.keepAbove) {
-        log("keepAbove!");
-        hideWezTerm(wezTerm);
-    } else {
-        log("not keepAbove!");
+    if (wezTerm.minimized) {
+        log("minimized!");
         showWezTerm(wezTerm);
+    } else {
+        log("not minimized!");
+        hideWezTerm(wezTerm);
     }
 }
 
