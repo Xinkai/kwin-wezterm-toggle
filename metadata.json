@@ -12,7 +12,7 @@
         "Id": "wezterm-toggle",
         "License": "MIT",
         "Name": "WezTermToggler",
-        "Version": "0.14"
+        "Version": "0.15"
     },
     "X-KDE-PluginKeyword": "wezterm-toggle",
     "X-KWin-Border-Activate": "true",

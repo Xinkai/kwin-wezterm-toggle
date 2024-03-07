@@ -4,7 +4,7 @@
 const KEY_SEQUENCE = "Meta+Alt+`";
 // Configuration Ends
 
-const VER = "0.14";
+const VER = "0.15";
 let wezTermCaught = null;
 let oldActive = null;
 
@@ -16,15 +16,15 @@ function error(...args) {
     console.error(`WezTermToggle ${VER}`, ...args);
 }
 
-function isWezTerm(client) {
-    return client.resourceClass === "org.wezfurlong.wezterm";
+function isWezTerm(win) {
+    return win.resourceClass === "org.wezfurlong.wezterm";
 }
 
 function findWezTerm() {
-    const clients = workspace.clientList();
-    for (const client of clients) {
-        if (isWezTerm(client)) {
-            return client;
+    const windows = workspace.windowList();
+    for (const win of windows) {
+        if (isWezTerm(win)) {
+            return win;
         }
     }
     return null;
@@ -41,11 +41,11 @@ function dirObj(obj) {
 
 function showWezTerm(wezTerm) {
     wezTerm.keepAbove = true;
-    if (!isWezTerm(workspace.activeClient)) {
-        oldActive = workspace.activeClient;
+    if (!isWezTerm(workspace.activeWindow)) {
+        oldActive = workspace.activeWindow;
         log("setting oldActive", oldActive.resourceClass);
     }
-    workspace.activeClient = wezTerm;
+    workspace.activeWindow = wezTerm;
 }
 
 function hideWezTerm(wezTerm) {
@@ -53,7 +53,7 @@ function hideWezTerm(wezTerm) {
     if (oldActive) {
         log("showing oldActive", oldActive.resourceClass);
     }
-    workspace.activeClient = oldActive;
+    workspace.activeWindow = oldActive;
     wezTerm.minimized = true;
 }
 
@@ -93,15 +93,15 @@ function toggle(_qAction) {
 
 function main() {
     try {
-        workspace.clientAdded.connect((client) => {
-            if (isWezTerm(client)) {
-                initSetup(client);
+        workspace.windowAdded.connect((win) => {
+            if (isWezTerm(win)) {
+                initSetup(win);
                 log("Caught!", wezTermCaught);
             }
         });
 
-        workspace.clientRemoved.connect((client) => {
-            if (isWezTerm(client)) {
+        workspace.windowRemoved.connect((win) => {
+            if (isWezTerm(win)) {
                 wezTermCaught = null;
                 log("WezTerm removed!");
             }
