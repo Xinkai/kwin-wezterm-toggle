@@ -64,6 +64,7 @@ function initSetup(wezTerm) {
     wezTerm.skipTaskbar = true;
     wezTerm.skipPager = true;
     wezTerm.skipSwitcher = true;
+    wezTerm.onAllDesktops = true;
     wezTermCaught = wezTerm;
 }
 
