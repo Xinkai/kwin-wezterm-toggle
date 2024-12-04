@@ -28,7 +28,7 @@ kpackagetool6 --type=KWin/Script --remove wezterm-toggle # Needs logout, because
 
 # Debug
 plasma-interactiveconsole --kwin
-qdbus org.kde.KWin /KWin showDebugConsole
+busctl call --user org.kde.KWin /KWin org.kde.KWin showDebugConsole # Alternatively: qdbus org.kde.KWin /KWin showDebugConsole
 journalctl --user --boot 0 --follow --identifier kwin_wayland
 
 # List
